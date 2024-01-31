@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: windowScene)
         
-        window?.rootViewController = MediaViewController()
+        window?.rootViewController = TelevisionViewController()
         window?.makeKeyAndVisible()
     }
 

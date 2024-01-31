@@ -41,7 +41,6 @@ class MediaCollectionViewCell: UICollectionViewCell {
     
     func configureView() {
         posterImageView.contentMode = .scaleAspectFill
-        titleLabel.text = "테스트"
     }
     
     

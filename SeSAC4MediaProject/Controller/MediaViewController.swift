@@ -31,25 +31,35 @@ class MediaViewController: UIViewController {
         configureLayout()
         configureView()
         
+        let group = DispatchGroup()
+        
+        group.enter()
         TMDBAPIManager.shared.fetchAPIMovie(apiType: .upcoming) { movie in
             self.titleMovieList = movie
-            self.collectionView.reloadData()
-            self.tableView.reloadData()
+            group.leave()
         }
         
+        group.enter()
         TMDBAPIManager.shared.fetchAPIMovie(apiType: .trending) { movie in
             self.trendingMovieList = movie
-            self.tableView.reloadData()
+            group.leave()
         }
         
+        group.enter()
         TMDBAPIManager.shared.fetchAPIMovie(apiType: .topRated) { movie in
             self.topRatedMovieList = movie
-            self.tableView.reloadData()
+            group.leave()
         }
         
+        group.enter()
         TMDBAPIManager.shared.fetchAPIMovie(apiType: .popular) { movie in
             self.popularMovieList = movie
+            group.leave()
+        }
+        
+        group.notify(queue: .main) {
             self.tableView.reloadData()
+            self.collectionView.reloadData()
         }
     }
     

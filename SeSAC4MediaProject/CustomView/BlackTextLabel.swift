@@ -23,6 +23,8 @@ class BlackTextLabel: UILabel {
         self.font = .boldSystemFont(ofSize: 15)
         self.textAlignment = .left
         numberOfLines = 2
-        backgroundColor = .clear
+        backgroundColor = .white
+        clipsToBounds = true
+        layer.cornerRadius = 8
     }
 }
