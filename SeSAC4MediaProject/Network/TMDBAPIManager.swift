@@ -31,7 +31,29 @@ class TMDBAPIManager {
                 completionHandler(success.results)
                 
             case .failure(let failure):
-                print("failure: ", failure)
+                print(api.endpoint, api.method, api.parameter)
+                dump(failure)
+            }
+        }
+    }
+    
+    func fetchDrama(api: TMDBAPI, completionHandler: @escaping ((TVSeries) -> Void)) {
+       
+        AF.request(api.endpoint,
+                   method: api.method,
+                   parameters: api.parameter,
+                   encoding: URLEncoding(destination: .queryString),
+                   headers: api.header).responseDecodable(of: TVSeries.self)
+        { response in
+            
+            switch response.result {
+            case .success(let success):
+                
+                completionHandler(success)
+                
+            case .failure(let failure):
+                print(api.endpoint, api.method, api.parameter)
+                dump(failure)
             }
         }
     }

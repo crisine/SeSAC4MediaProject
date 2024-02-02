@@ -13,7 +13,7 @@ class TelevisionViewController: BaseViewController {
     let movieId = 96102
     let titleList = ["배우 캐스팅 정보", "비슷한 드라마 추천"]
     
-    var tvSeriesInfo: Movie?
+    var tvSeriesInfo: TVSeries?
     var similarMovies: [Movie] = []
     var castingInfo: [Cast] = []
     
@@ -47,8 +47,10 @@ class TelevisionViewController: BaseViewController {
         let group = DispatchGroup()
         
         group.enter()
-        TMDBAPIManager.shared.fetchMovie(api: .detail(id: movieId)) { movie in
-            self.tvSeriesInfo = movie[0]
+        TMDBAPIManager.shared.fetchDrama(api: .detail(id: movieId)) { drama in
+            print("드라마 정보 로드 완료")
+            
+            self.tvSeriesInfo = drama
             
             let url = "https://image.tmdb.org/t/p/w500\(self.tvSeriesInfo?.poster_path ?? "")"
             print("url: \(url)")

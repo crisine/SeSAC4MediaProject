@@ -37,8 +37,8 @@ enum TMDBAPI {
             return URL(string: baseURL + "tv/popular")!
         case .upcoming:
             return URL(string: baseURL + "movie/upcoming")!
-        case .detail:
-            return URL(string: baseURL + "tv/")!
+        case .detail(let id):
+            return URL(string: baseURL + "tv/\(id)")!
         case .similar(let id):
             return URL(string: baseURL + "tv/\(id)/recommendations")!
         }
@@ -66,9 +66,9 @@ enum TMDBAPI {
             ["": ""]
         case .upcoming:
             ["": ""]
-        case .detail(let id):
-            ["": id, "language": "ko-KR"]
-        case .similar(let id):
+        case .detail:
+            ["language": "ko-KR"]
+        case .similar:
             ["language": "ko-KR"]
         }
     }
