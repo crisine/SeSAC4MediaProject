@@ -8,36 +8,21 @@
 import Foundation
 import Alamofire
 
-enum TMDBAPI {
-    case trending, topRated, popular, upcoming
-    
-    var url: String {
-        switch self {
-        case .trending:
-            return "trending/movie/week?language=ko-KR"
-        case .topRated:
-            return "tv/top_rated?language=ko-KR"
-        case .popular:
-            return "tv/popular?language=ko-KR"
-        case .upcoming:
-            return "movie/upcoming?language=ko-KR"
-        }
-    }
-}
-
 class TMDBAPIManager {
     
     static let shared = TMDBAPIManager()
     
-    let baseURL = "https://api.themoviedb.org/3/"
-    let header: HTTPHeaders = ["Authorization": APIKey.tmdb]
-    
     private init() {}
     
-    func fetchAPIMovie(apiType: TMDBAPI, completionHandler: @escaping (([Movie]) -> Void)) {
-        let url = baseURL + apiType.url
-        
-        AF.request(url, headers: header).responseDecodable(of: MovieModel.self)
+    let baseURL = "https://api.themoviedb.org/3/"
+    
+    func fetchMovie(api: TMDBAPI, completionHandler: @escaping (([Movie]) -> Void)) {
+       
+        AF.request(api.endpoint,
+                   method: api.method,
+                   parameters: api.parameter,
+                   encoding: URLEncoding(destination: .queryString),
+                   headers: api.header).responseDecodable(of: MovieModel.self)
         { response in
             
             switch response.result {
@@ -51,15 +36,17 @@ class TMDBAPIManager {
         }
     }
     
-    func fetchMovieDetail(movieId: Int, completionHandler: @escaping ((Movie) -> Void)) {
-        let url = baseURL + "tv/\(movieId)?language=ko-KR"
+    func fetchMovieImages(api: TMDBAPI, completionHandler: @escaping (PosterModel) -> Void) {
         
-        AF.request(url, headers: header).responseDecodable(of: Movie.self)
-        { response in
+        AF.request(api.endpoint,
+                   method: api.method,
+                   parameters: api.parameter,
+                   encoding: URLEncoding(destination: .queryString),
+                   headers: api.header).responseDecodable(of: PosterModel.self) { response in
             
             switch response.result {
             case .success(let success):
-                
+                print("success: ", success)
                 completionHandler(success)
                 
             case .failure(let failure):
@@ -68,52 +55,19 @@ class TMDBAPIManager {
         }
     }
     
-    func fetchSimilarMovies(movieId: Int, completionHandler: @escaping(([Movie]) -> Void)) {
-        
-        let url = "https://api.themoviedb.org/3/tv/\(movieId)/recommendations?language=ko-KR"
-        
-        AF.request(url, headers: header).responseDecodable(of: MovieModel.self)
-        { response in
-            
+    func fetchCastInfo(id: Int, completionHandler: @escaping ([Cast]) -> Void) {
+        let url = "https://api.themoviedb.org/3/tv/\(id)/aggregate_credits"
+        let header: HTTPHeaders = ["Authorization": APIKey.tmdb]
+
+        AF.request(url, headers: header).responseDecodable(of: CastModel.self) { response in
             switch response.result {
+                
             case .success(let success):
                 
-                completionHandler(success.results)
+                completionHandler(success.cast)
                 
             case .failure(let failure):
-                print("failure: ", failure)
-            }
-        }
-    }
-    
-    func fetchCastInfo(movieId: Int, completionHandler: @escaping((CastModel) -> Void)) {
-        let url = baseURL + "tv/\(movieId)/aggregate_credits"
-        
-        AF.request(url, headers: header).responseDecodable(of: CastModel.self)
-        { response in
-            
-            switch response.result {
-            case .success(let success):
                 
-                completionHandler(success)
-                
-            case .failure(let failure):
-                print("failure: ", failure)
-            }
-        }
-    }
-    
-    func fetchMovieImages(id: Int, completionHandler: @escaping (PosterModel) -> Void) {
-        let url = "https://api.themoviedb.org/3/movie/\(id)/images"
-        
-        AF.request(url, headers: header).responseDecodable(of: PosterModel.self)
-        { response in
-            
-            switch response.result {
-            case .success(let success):
-                completionHandler(success)
-                
-            case .failure(let failure):
                 dump(failure)
             }
         }

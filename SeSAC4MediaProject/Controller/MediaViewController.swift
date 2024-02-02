@@ -34,25 +34,25 @@ class MediaViewController: UIViewController {
         let group = DispatchGroup()
         
         group.enter()
-        TMDBAPIManager.shared.fetchAPIMovie(apiType: .upcoming) { movie in
+        TMDBAPIManager.shared.fetchMovie(api: .upcoming) { movie in
             self.titleMovieList = movie
             group.leave()
         }
         
         group.enter()
-        TMDBAPIManager.shared.fetchAPIMovie(apiType: .trending) { movie in
+        TMDBAPIManager.shared.fetchMovie(api: .trending) { movie in
             self.trendingMovieList = movie
             group.leave()
         }
         
         group.enter()
-        TMDBAPIManager.shared.fetchAPIMovie(apiType: .topRated) { movie in
+        TMDBAPIManager.shared.fetchMovie(api: .topRated) { movie in
             self.topRatedMovieList = movie
             group.leave()
         }
         
         group.enter()
-        TMDBAPIManager.shared.fetchAPIMovie(apiType: .popular) { movie in
+        TMDBAPIManager.shared.fetchMovie(api: .popular) { movie in
             self.popularMovieList = movie
             group.leave()
         }

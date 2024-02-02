@@ -15,7 +15,7 @@ class TelevisionViewController: BaseViewController {
     
     var tvSeriesInfo: Movie?
     var similarMovies: [Movie] = []
-    var castingInfo: CastModel?
+    var castingInfo: [Cast] = []
     
     let imageView: UIImageView = {
         let view = UIImageView()
@@ -47,8 +47,8 @@ class TelevisionViewController: BaseViewController {
         let group = DispatchGroup()
         
         group.enter()
-        TMDBAPIManager.shared.fetchMovieDetail(movieId: movieId) { movie in
-            self.tvSeriesInfo = movie
+        TMDBAPIManager.shared.fetchMovie(api: .detail(id: movieId)) { movie in
+            self.tvSeriesInfo = movie[0]
             
             let url = "https://image.tmdb.org/t/p/w500\(self.tvSeriesInfo?.poster_path ?? "")"
             print("url: \(url)")
@@ -60,16 +60,16 @@ class TelevisionViewController: BaseViewController {
         
         // 비슷한 드라마 추천, 캐스트 정보 불러오기
         group.enter()
-        TMDBAPIManager.shared.fetchSimilarMovies(movieId: movieId) { movies in
+        TMDBAPIManager.shared.fetchMovie(api: .similar(id: movieId)) { movies in
             self.similarMovies = movies
             print("비슷한 영화 정보 로드 완료 : ", self.similarMovies.count)
             group.leave()
         }
         
         group.enter()
-        TMDBAPIManager.shared.fetchCastInfo(movieId: movieId) { castModel in
-            self.castingInfo = castModel
-            print("캐스팅 정보 로드 완료 : ", self.castingInfo?.cast.count ?? 0)
+        TMDBAPIManager.shared.fetchCastInfo(id: movieId) { cast in
+            self.castingInfo = cast
+            print("캐스팅 정보 로드 완료 : ", self.castingInfo.count)
             group.leave()
         }
         
@@ -147,8 +147,8 @@ extension TelevisionViewController: UICollectionViewDelegate, UICollectionViewDa
         print("컬렉션 뷰 크기 반환")
         switch collectionView.tag {
         case 0:
-            print("castingInfo.case.count : ", castingInfo?.cast.count ?? 0)
-            return castingInfo?.cast.count ?? 0
+            print("castingInfo.case.count : ", castingInfo.count)
+            return castingInfo.count
         case 1:
             print("similarMovies.count : ", similarMovies.count)
             return similarMovies.count
@@ -164,9 +164,9 @@ extension TelevisionViewController: UICollectionViewDelegate, UICollectionViewDa
         
         switch collectionView.tag {
         case 0:
-            let url = URL(string: "https://image.tmdb.org/t/p/w500\(castingInfo?.cast[indexPath.row].profilePath ?? "")")
+            let url = URL(string: "https://image.tmdb.org/t/p/w500\(castingInfo[indexPath.row].profilePath ?? "")")
             cell.posterImageView.kf.setImage(with: url, placeholder: UIImage(systemName: "xmark"))
-            cell.titleLabel.text = castingInfo?.cast[indexPath.row].originalName
+            cell.titleLabel.text = castingInfo[indexPath.row].originalName
             cell.titleLabel.textAlignment = .center
         case 1:
             let url = URL(string: "https://image.tmdb.org/t/p/w500\(similarMovies[indexPath.row].poster_path ?? "")")
