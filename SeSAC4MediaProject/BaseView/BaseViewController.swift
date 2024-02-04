@@ -22,7 +22,10 @@ class BaseViewController: UIViewController {
     func configureLayout() { }
     
     func configureView() {
-        view.backgroundColor = .white
+        view.backgroundColor = .black
+        
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
     }
     
 }

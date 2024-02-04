@@ -16,44 +16,25 @@ class TMDBAPIManager {
     
     let baseURL = "https://api.themoviedb.org/3/"
     
-    func fetchMovie(api: TMDBAPI, completionHandler: @escaping (([Movie]) -> Void)) {
+    func request<T: Decodable, API: APIProtocol>(type: T.Type, api: API,
+                               completionHandler: @escaping ((T) -> Void)) {
        
         AF.request(api.endpoint,
                    method: api.method,
                    parameters: api.parameter,
                    encoding: URLEncoding(destination: .queryString),
-                   headers: api.header).responseDecodable(of: MovieModel.self)
+                   headers: api.header).responseDecodable(of: type)
         { response in
             
             switch response.result {
             case .success(let success):
-                
-                completionHandler(success.results)
-                
-            case .failure(let failure):
-                print(api.endpoint, api.method, api.parameter)
-                dump(failure)
-            }
-        }
-    }
-    
-    func fetchDrama(api: TMDBAPI, completionHandler: @escaping ((TVSeries) -> Void)) {
-       
-        AF.request(api.endpoint,
-                   method: api.method,
-                   parameters: api.parameter,
-                   encoding: URLEncoding(destination: .queryString),
-                   headers: api.header).responseDecodable(of: TVSeries.self)
-        { response in
-            
-            switch response.result {
-            case .success(let success):
+                // print("success: ", success)
                 
                 completionHandler(success)
                 
             case .failure(let failure):
-                print(api.endpoint, api.method, api.parameter)
                 dump(failure)
+                
             }
         }
     }
@@ -68,7 +49,7 @@ class TMDBAPIManager {
             
             switch response.result {
             case .success(let success):
-                print("success: ", success)
+                // print("success: ", success)
                 completionHandler(success)
                 
             case .failure(let failure):

@@ -1,17 +1,16 @@
 //
-//  MediaCollectionViewCell.swift
+//  FindCollectionViewSell.swift
 //  SeSAC4MediaProject
 //
-//  Created by Minho on 1/31/24.
+//  Created by Minho on 2/4/24.
 //
 
 import UIKit
 import SnapKit
 
-class MediaCollectionViewCell: UICollectionViewCell {
+class FindCollectionViewCell: UICollectionViewCell {
     
     let posterImageView = PosterImageView(frame: .zero)
-    let titleLabel = BlackTextLabel()
     
     // 코드를 사용한 경우의 init
     override init(frame: CGRect) {
@@ -27,20 +26,16 @@ class MediaCollectionViewCell: UICollectionViewCell {
             make.edges.equalTo(contentView)
         }
         
-        titleLabel.snp.makeConstraints { make in
-            make.horizontalEdges.bottom.equalTo(contentView)
-            make.height.equalTo(20)
-        }
     }
     
     func configureHirearchy() {
-        [posterImageView, titleLabel].forEach {
+        [posterImageView].forEach {
             contentView.addSubview($0)
         }
     }
     
     func configureView() {
-        posterImageView.contentMode = .scaleAspectFill
+        posterImageView.image = UIImage(systemName: "person")
     }
     
     
