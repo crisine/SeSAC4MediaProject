@@ -13,8 +13,8 @@ struct TVSeriesModel: Decodable {
 }
 
 struct TVSeries: Decodable {
-    let original_name: String
-    let name: String
+    let original_name: String?
+    let name: String?
     let overview: String
     let poster_path: String?
     let genres: [Genre]?

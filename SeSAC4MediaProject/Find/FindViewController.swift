@@ -31,8 +31,17 @@ class FindViewController: BaseViewController {
         let group = DispatchGroup()
         
         group.enter()
-        TMDBAPIManager.shared.request(type: TVSeriesModel.self, api: TMDBTVAPI.airing) { tvSeries in
-            self.tvSeriesLists[0] = tvSeries.results
+//        TMDBAPIManager.shared.request(type: TVSeriesModel.self, api: TMDBTVAPI.airing) { tvSeries in
+//            self.tvSeriesLists[0] = tvSeries.results
+//            group.leave()
+//        }
+        
+        TMDBSessionManager.shared.fetchTVSeries(api: .trending, query: ["language": "ko-KR"]) { tvSeries, error in
+            if let tvSeries {
+                self.tvSeriesLists[0] = tvSeries.results
+            } else {
+                dump(error)
+            }
             group.leave()
         }
         
