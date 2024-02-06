@@ -23,6 +23,7 @@
 		FA141EC42B71338C00CFD65A /* TMDBSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA141EC32B71338C00CFD65A /* TMDBSessionManager.swift */; };
 		FA141EDA2B72C8FD00CFD65A /* FindResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA141ED92B72C8FD00CFD65A /* FindResultView.swift */; };
 		FA141EDD2B72CAED00CFD65A /* FindResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA141EDC2B72CAED00CFD65A /* FindResultViewController.swift */; };
+		FA141EDF2B72F03500CFD65A /* TVSeriesInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA141EDE2B72F03500CFD65A /* TVSeriesInfoTableViewCell.swift */; };
 		FA5EFB412B692E9B0009FC65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5EFB402B692E9B0009FC65 /* AppDelegate.swift */; };
 		FA5EFB432B692E9B0009FC65 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5EFB422B692E9B0009FC65 /* SceneDelegate.swift */; };
 		FA5EFB452B692E9B0009FC65 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5EFB442B692E9B0009FC65 /* ViewController.swift */; };
@@ -58,6 +59,7 @@
 		FA141EC32B71338C00CFD65A /* TMDBSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMDBSessionManager.swift; sourceTree = "<group>"; };
 		FA141ED92B72C8FD00CFD65A /* FindResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindResultView.swift; sourceTree = "<group>"; };
 		FA141EDC2B72CAED00CFD65A /* FindResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindResultViewController.swift; sourceTree = "<group>"; };
+		FA141EDE2B72F03500CFD65A /* TVSeriesInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVSeriesInfoTableViewCell.swift; sourceTree = "<group>"; };
 		FA5EFB3D2B692E9B0009FC65 /* SeSAC4MediaProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSAC4MediaProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA5EFB402B692E9B0009FC65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA5EFB422B692E9B0009FC65 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			children = (
 				FA09CFD12B6FF4CE00FA3C71 /* DetailView.swift */,
 				FA09CFD32B6FF85D00FA3C71 /* DetailViewController.swift */,
+				FA141EDE2B72F03500CFD65A /* TVSeriesInfoTableViewCell.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				FA09CFCD2B6FE49600FA3C71 /* WhiteTextLabel.swift in Sources */,
 				FA09CF882B6C10FB00FA3C71 /* TMDBAPI.swift in Sources */,
 				FA5EFB752B6965380009FC65 /* BlackTextLabel.swift in Sources */,
+				FA141EDF2B72F03500CFD65A /* TVSeriesInfoTableViewCell.swift in Sources */,
 				FA5EFB592B692EFD0009FC65 /* PosterModel.swift in Sources */,
 				FA09CFCF2B6FEE1500FA3C71 /* FindMainTableViewCell.swift in Sources */,
 				FA09CFC42B6FA29E00FA3C71 /* FindViewController.swift in Sources */,

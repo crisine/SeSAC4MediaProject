@@ -80,6 +80,7 @@ enum TMDBTVAPI: APIProtocol {
     case trending
     case topRated
     case popular
+    case similar(seriesID: String)
     
     var baseURL: String {
         return "https://api.themoviedb.org/3/"
@@ -99,6 +100,8 @@ enum TMDBTVAPI: APIProtocol {
             return URL(string: baseURL + "tv/top_rated")!
         case .popular:
             return URL(string: baseURL + "tv/popular")!
+        case .similar(let seriesID):
+            return URL(string: baseURL + "tv/\(seriesID)/similar")!
         }
        
     }
@@ -124,6 +127,8 @@ enum TMDBTVAPI: APIProtocol {
         case .topRated:
             ["language": "ko-KR"]
         case .popular:
+            ["language": "ko-KR"]
+        case .similar:
             ["language": "ko-KR"]
         }
     }

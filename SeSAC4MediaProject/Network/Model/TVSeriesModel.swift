@@ -13,6 +13,7 @@ struct TVSeriesModel: Decodable {
 }
 
 struct TVSeries: Decodable {
+    let id: Int
     let original_name: String?
     let name: String?
     let overview: String
@@ -20,10 +21,15 @@ struct TVSeries: Decodable {
     let genres: [Genre]?
     let vote_average: Double
     let vote_count: Int
+    let spoken_languages: [SpokenLanguage]?
 }
 
 struct Genre: Decodable {
     let id: Int
+    let name: String
+}
+
+struct SpokenLanguage: Decodable {
     let name: String
 }
 
