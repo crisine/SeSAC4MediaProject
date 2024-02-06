@@ -1,5 +1,5 @@
 //
-//  FindCollectionViewSell.swift
+//  PosterCollectionViewCell.swift
 //  SeSAC4MediaProject
 //
 //  Created by Minho on 2/4/24.
@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class FindCollectionViewCell: UICollectionViewCell {
+class PosterCollectionViewCell: UICollectionViewCell {
     
     let posterImageView = PosterImageView(frame: .zero)
     

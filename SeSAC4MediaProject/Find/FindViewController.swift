@@ -80,12 +80,10 @@ extension FindViewController: UISearchBarDelegate {
         
         if let keyword = searchBar.text {
             TMDBAPIManager.shared.request(type: TVSeriesModel.self, api: TMDBTVAPI.search(query: keyword)) { tvSeriesList in
+
+                let data = tvSeriesList.results
                 
-                // MARK: TV드라마 정보가 List로 들어오지만 일단 1개만 갖고 가는것으로 함.
-                if let tvSeriesInfo = tvSeriesList.results.first {
-                    
-                    self.navigationController?.pushViewController(DetailViewController(tvSeriesInfo: tvSeriesInfo), animated: true)
-                }
+                self.navigationController?.pushViewController(FindResultViewController(data: data), animated: true)
             }
         }
         
@@ -121,7 +119,7 @@ extension FindViewController: UITableViewDelegate, UITableViewDataSource {
             cell.collectionView.dataSource = self
             cell.collectionView.delegate = self
             
-            cell.collectionView.register(FindCollectionViewCell.self, forCellWithReuseIdentifier: "FindCollectionViewCell")
+            cell.collectionView.register(PosterCollectionViewCell.self, forCellWithReuseIdentifier: "FindCollectionViewCell")
             
             cell.collectionView.tag = rowIndex
             
@@ -138,7 +136,7 @@ extension FindViewController: UITableViewDelegate, UITableViewDataSource {
             cell.collectionView.dataSource = self
             cell.collectionView.delegate = self
             
-            cell.collectionView.register(FindCollectionViewCell.self, forCellWithReuseIdentifier: "FindCollectionViewCell")
+            cell.collectionView.register(PosterCollectionViewCell.self, forCellWithReuseIdentifier: "FindCollectionViewCell")
             
             cell.collectionView.tag = rowIndex
             cell.titleLabel.text = tvSeriesTableViewTitles[rowIndex]
@@ -163,7 +161,7 @@ extension FindViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FindCollectionViewCell", for: indexPath) as! FindCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FindCollectionViewCell", for: indexPath) as! PosterCollectionViewCell
         
         let rowNum = collectionView.tag
         let item = tvSeriesLists[rowNum][indexPath.item]

@@ -14,13 +14,15 @@
 		FA09CFC02B6FA07500FA3C71 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA09CFBF2B6FA07500FA3C71 /* BaseView.swift */; };
 		FA09CFC42B6FA29E00FA3C71 /* FindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA09CFC22B6FA29E00FA3C71 /* FindViewController.swift */; };
 		FA09CFC52B6FA29E00FA3C71 /* FindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA09CFC32B6FA29E00FA3C71 /* FindView.swift */; };
-		FA09CFC72B6FA2EE00FA3C71 /* FindCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA09CFC62B6FA2EE00FA3C71 /* FindCollectionViewCell.swift */; };
+		FA09CFC72B6FA2EE00FA3C71 /* PosterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA09CFC62B6FA2EE00FA3C71 /* PosterCollectionViewCell.swift */; };
 		FA09CFCB2B6FD61A00FA3C71 /* FindTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA09CFCA2B6FD61A00FA3C71 /* FindTableViewCell.swift */; };
 		FA09CFCD2B6FE49600FA3C71 /* WhiteTextLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA09CFCC2B6FE49600FA3C71 /* WhiteTextLabel.swift */; };
 		FA09CFCF2B6FEE1500FA3C71 /* FindMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA09CFCE2B6FEE1500FA3C71 /* FindMainTableViewCell.swift */; };
 		FA09CFD22B6FF4CE00FA3C71 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA09CFD12B6FF4CE00FA3C71 /* DetailView.swift */; };
 		FA09CFD42B6FF85D00FA3C71 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA09CFD32B6FF85D00FA3C71 /* DetailViewController.swift */; };
 		FA141EC42B71338C00CFD65A /* TMDBSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA141EC32B71338C00CFD65A /* TMDBSessionManager.swift */; };
+		FA141EDA2B72C8FD00CFD65A /* FindResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA141ED92B72C8FD00CFD65A /* FindResultView.swift */; };
+		FA141EDD2B72CAED00CFD65A /* FindResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA141EDC2B72CAED00CFD65A /* FindResultViewController.swift */; };
 		FA5EFB412B692E9B0009FC65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5EFB402B692E9B0009FC65 /* AppDelegate.swift */; };
 		FA5EFB432B692E9B0009FC65 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5EFB422B692E9B0009FC65 /* SceneDelegate.swift */; };
 		FA5EFB452B692E9B0009FC65 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5EFB442B692E9B0009FC65 /* ViewController.swift */; };
@@ -47,13 +49,15 @@
 		FA09CFBF2B6FA07500FA3C71 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		FA09CFC22B6FA29E00FA3C71 /* FindViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindViewController.swift; sourceTree = "<group>"; };
 		FA09CFC32B6FA29E00FA3C71 /* FindView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindView.swift; sourceTree = "<group>"; };
-		FA09CFC62B6FA2EE00FA3C71 /* FindCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindCollectionViewCell.swift; sourceTree = "<group>"; };
+		FA09CFC62B6FA2EE00FA3C71 /* PosterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterCollectionViewCell.swift; sourceTree = "<group>"; };
 		FA09CFCA2B6FD61A00FA3C71 /* FindTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindTableViewCell.swift; sourceTree = "<group>"; };
 		FA09CFCC2B6FE49600FA3C71 /* WhiteTextLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteTextLabel.swift; sourceTree = "<group>"; };
 		FA09CFCE2B6FEE1500FA3C71 /* FindMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMainTableViewCell.swift; sourceTree = "<group>"; };
 		FA09CFD12B6FF4CE00FA3C71 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		FA09CFD32B6FF85D00FA3C71 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		FA141EC32B71338C00CFD65A /* TMDBSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMDBSessionManager.swift; sourceTree = "<group>"; };
+		FA141ED92B72C8FD00CFD65A /* FindResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindResultView.swift; sourceTree = "<group>"; };
+		FA141EDC2B72CAED00CFD65A /* FindResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindResultViewController.swift; sourceTree = "<group>"; };
 		FA5EFB3D2B692E9B0009FC65 /* SeSAC4MediaProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSAC4MediaProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA5EFB402B692E9B0009FC65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA5EFB422B692E9B0009FC65 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -101,7 +105,6 @@
 				FA09CFC22B6FA29E00FA3C71 /* FindViewController.swift */,
 				FA09CFCE2B6FEE1500FA3C71 /* FindMainTableViewCell.swift */,
 				FA09CFCA2B6FD61A00FA3C71 /* FindTableViewCell.swift */,
-				FA09CFC62B6FA2EE00FA3C71 /* FindCollectionViewCell.swift */,
 			);
 			path = Find;
 			sourceTree = "<group>";
@@ -124,6 +127,23 @@
 				FA09CF7D2B6A381900FA3C71 /* CastModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		FA141ED82B72C8D900CFD65A /* FindResult */ = {
+			isa = PBXGroup;
+			children = (
+				FA141ED92B72C8FD00CFD65A /* FindResultView.swift */,
+				FA141EDC2B72CAED00CFD65A /* FindResultViewController.swift */,
+			);
+			path = FindResult;
+			sourceTree = "<group>";
+		};
+		FA141EDB2B72C9AF00CFD65A /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				FA09CFC62B6FA2EE00FA3C71 /* PosterCollectionViewCell.swift */,
+			);
+			path = CollectionViewCell;
 			sourceTree = "<group>";
 		};
 		FA5EFB342B692E9B0009FC65 = {
@@ -149,6 +169,8 @@
 				FA5EFB6F2B69652C0009FC65 /* CustomView */,
 				FA5EFB542B692EAD0009FC65 /* Network */,
 				FA09CFC12B6FA29500FA3C71 /* Find */,
+				FA141ED82B72C8D900CFD65A /* FindResult */,
+				FA141EDB2B72C9AF00CFD65A /* CollectionViewCell */,
 				FA09CFD02B6FF4BA00FA3C71 /* Detail */,
 				FA5EFB402B692E9B0009FC65 /* AppDelegate.swift */,
 				FA5EFB422B692E9B0009FC65 /* SceneDelegate.swift */,
@@ -287,7 +309,9 @@
 				FA5EFB432B692E9B0009FC65 /* SceneDelegate.swift in Sources */,
 				FA09CFC52B6FA29E00FA3C71 /* FindView.swift in Sources */,
 				FA09CFC02B6FA07500FA3C71 /* BaseView.swift in Sources */,
-				FA09CFC72B6FA2EE00FA3C71 /* FindCollectionViewCell.swift in Sources */,
+				FA141EDD2B72CAED00CFD65A /* FindResultViewController.swift in Sources */,
+				FA141EDA2B72C8FD00CFD65A /* FindResultView.swift in Sources */,
+				FA09CFC72B6FA2EE00FA3C71 /* PosterCollectionViewCell.swift in Sources */,
 				FA5EFB732B6965380009FC65 /* PosterImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
