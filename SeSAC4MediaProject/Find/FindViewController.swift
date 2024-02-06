@@ -31,19 +31,19 @@ class FindViewController: BaseViewController {
         let group = DispatchGroup()
         
         group.enter()
-//        TMDBAPIManager.shared.request(type: TVSeriesModel.self, api: TMDBTVAPI.airing) { tvSeries in
-//            self.tvSeriesLists[0] = tvSeries.results
-//            group.leave()
-//        }
-        
-        TMDBSessionManager.shared.fetchTVSeries(api: .trending, query: ["language": "ko-KR"]) { tvSeries, error in
-            if let tvSeries {
-                self.tvSeriesLists[0] = tvSeries.results
-            } else {
-                dump(error)
-            }
+        TMDBAPIManager.shared.request(type: TVSeriesModel.self, api: TMDBTVAPI.airing) { tvSeries in
+            self.tvSeriesLists[0] = tvSeries.results
             group.leave()
         }
+        
+//        TMDBSessionManager.shared.fetchTVSeries(api: .trending, query: ["language": "ko-KR"]) { tvSeries, error in
+//            if let tvSeries {
+//                self.tvSeriesLists[0] = tvSeries.results
+//            } else {
+//                dump(error)
+//            }
+//            group.leave()
+//        }
         
         group.enter()
         TMDBAPIManager.shared.request(type: TVSeriesModel.self, api: TMDBTVAPI.trending) { tvSeries in
@@ -178,4 +178,11 @@ extension FindViewController: UICollectionViewDelegate, UICollectionViewDataSour
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let rowNum = collectionView.tag
+        let index = indexPath.row
+        let data = tvSeriesLists[rowNum][index]
+        
+        navigationController?.pushViewController(DetailViewController(tvSeriesInfo: data), animated: true)
+    }
 }
