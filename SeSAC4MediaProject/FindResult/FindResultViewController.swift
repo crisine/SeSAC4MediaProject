@@ -60,5 +60,7 @@ extension FindResultViewController: UICollectionViewDelegate, UICollectionViewDa
         return cell
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        navigationController?.pushViewController(DetailViewController(tvSeriesInfo: tvSeriesList[indexPath.row]), animated: true)
+    }
 }

@@ -61,6 +61,8 @@ class DetailView: BaseView {
     }
     
     override func configureView() {
+        self.backgroundColor = .black
+        
         posterImageView.contentMode = .scaleAspectFit
         posterImageView.clipsToBounds = true
         posterImageView.layer.cornerRadius = 8
