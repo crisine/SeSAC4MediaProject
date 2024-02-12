@@ -7,11 +7,6 @@
 
 import UIKit
 
-enum ProfileItemTitle: String, CaseIterable {
-    case realname = "이름"
-    case nickname = "사용자 이름"
-}
-
 final class ProfileViewController: BaseViewController {
     
     private let mainView = ProfileView()
@@ -32,6 +27,7 @@ final class ProfileViewController: BaseViewController {
         super.configureView()
         
         navigationItem.title = "프로필"
+        navigationItem.backButtonTitle = ""
     }
 }
 
@@ -68,11 +64,26 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileItemTableViewCell", for: indexPath) as! ProfileItemTableViewCell
             
             cell.itemTitleLabel.text = itemTitleList[rowNum - 1].rawValue
+            
+            cell.itemModifyButton.tag = rowNum - 1
+            cell.itemModifyButton.addTarget(self, action: #selector(didItemModifyButtonTapped), for: .touchUpInside)
 //            cell.itemDetailLabel.text =
 //          MARK: 알맞은 유저 정보를 ProfileModelManager 로부터 불러오기
 //          menu의 case를 manager로 넘겨서 정보를 가져오는 것도 하나의 방법일수도 있을 것으로 보임.
             
             return cell
         }
+    }
+    
+    @objc
+    func didItemModifyButtonTapped(sender: UIButton) {
+        print("\(sender.tag) 번 프로필 아이템 버튼 눌림!")
+
+        let vc = ProfileItemModifyViewController()
+
+        // MARK: itemText는 사용자에게 저장되어 있는 실제 값을 불러오아야만 함
+        vc.setViewLabelsText(titleText: itemTitleList[sender.tag].rawValue, itemText: "임시")
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -47,6 +47,9 @@
 		FAC0C75C2B7A5B4400DC5502 /* ProfileItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0C75B2B7A5B4400DC5502 /* ProfileItemTableViewCell.swift */; };
 		FAC0C75E2B7A5EFD00DC5502 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0C75D2B7A5EFD00DC5502 /* ProfileModel.swift */; };
 		FAC0C7602B7A67D800DC5502 /* ProfileModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0C75F2B7A67D800DC5502 /* ProfileModelManager.swift */; };
+		FAC0C7622B7A884100DC5502 /* ProfileItemModifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0C7612B7A884100DC5502 /* ProfileItemModifyView.swift */; };
+		FAC0C7642B7A8D7B00DC5502 /* ProfileItemModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0C7632B7A8D7B00DC5502 /* ProfileItemModifyViewController.swift */; };
+		FAC0C7672B7A973700DC5502 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0C7662B7A973700DC5502 /* UITextField+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +92,9 @@
 		FAC0C75B2B7A5B4400DC5502 /* ProfileItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileItemTableViewCell.swift; sourceTree = "<group>"; };
 		FAC0C75D2B7A5EFD00DC5502 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		FAC0C75F2B7A67D800DC5502 /* ProfileModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModelManager.swift; sourceTree = "<group>"; };
+		FAC0C7612B7A884100DC5502 /* ProfileItemModifyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileItemModifyView.swift; sourceTree = "<group>"; };
+		FAC0C7632B7A8D7B00DC5502 /* ProfileItemModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileItemModifyViewController.swift; sourceTree = "<group>"; };
+		FAC0C7662B7A973700DC5502 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				FA09CF782B6A1D1D00FA3C71 /* BaseView */,
+				FAC0C7652B7A972200DC5502 /* Extension */,
 				FA5EFB6F2B69652C0009FC65 /* CustomView */,
 				FAC0C7512B7A350200DC5502 /* CustomViewController */,
 				FA5EFB542B692EAD0009FC65 /* Network */,
@@ -242,8 +249,18 @@
 				FAC0C75B2B7A5B4400DC5502 /* ProfileItemTableViewCell.swift */,
 				FAC0C75D2B7A5EFD00DC5502 /* ProfileModel.swift */,
 				FAC0C75F2B7A67D800DC5502 /* ProfileModelManager.swift */,
+				FAC0C7612B7A884100DC5502 /* ProfileItemModifyView.swift */,
+				FAC0C7632B7A8D7B00DC5502 /* ProfileItemModifyViewController.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		FAC0C7652B7A972200DC5502 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				FAC0C7662B7A973700DC5502 /* UITextField+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,6 +353,7 @@
 				FA09CF7E2B6A381900FA3C71 /* CastModel.swift in Sources */,
 				FA09CFD22B6FF4CE00FA3C71 /* DetailView.swift in Sources */,
 				FA5EFB5B2B692EFD0009FC65 /* TMDBAPIManager.swift in Sources */,
+				FAC0C7622B7A884100DC5502 /* ProfileItemModifyView.swift in Sources */,
 				FAC0C7602B7A67D800DC5502 /* ProfileModelManager.swift in Sources */,
 				FA5EFB412B692E9B0009FC65 /* AppDelegate.swift in Sources */,
 				FA141EC42B71338C00CFD65A /* TMDBSessionManager.swift in Sources */,
@@ -345,6 +363,7 @@
 				FAC0C7582B7A3D1700DC5502 /* ProfileImageTableViewCell.swift in Sources */,
 				FA09CF7A2B6A1D2600FA3C71 /* BaseViewController.swift in Sources */,
 				FA5EFB742B6965380009FC65 /* BlackRadiusTextField.swift in Sources */,
+				FAC0C7642B7A8D7B00DC5502 /* ProfileItemModifyViewController.swift in Sources */,
 				FA09CFCD2B6FE49600FA3C71 /* WhiteTextLabel.swift in Sources */,
 				FA09CF882B6C10FB00FA3C71 /* TMDBAPI.swift in Sources */,
 				FA5EFB752B6965380009FC65 /* BlackTextLabel.swift in Sources */,
@@ -360,6 +379,7 @@
 				FAC0C75C2B7A5B4400DC5502 /* ProfileItemTableViewCell.swift in Sources */,
 				FA141EDA2B72C8FD00CFD65A /* FindResultView.swift in Sources */,
 				FA09CFC72B6FA2EE00FA3C71 /* PosterCollectionViewCell.swift in Sources */,
+				FAC0C7672B7A973700DC5502 /* UITextField+Extension.swift in Sources */,
 				FA5EFB732B6965380009FC65 /* PosterImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
