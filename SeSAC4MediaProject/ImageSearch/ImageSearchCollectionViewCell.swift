@@ -10,7 +10,16 @@ import SnapKit
 
 final class ImageSearchCollectionViewCell: UICollectionViewCell {
     
-    let imageView = UIImageView(frame: .zero)
+    let imageView: UIImageView = {
+        let view = UIImageView()
+        
+        view.contentMode = .scaleAspectFill
+        view.clipsToBounds = true
+        
+        return view
+    }()
+    
+    var urlString: String?
     
     // 코드를 사용한 경우의 init
     override init(frame: CGRect) {
@@ -28,7 +37,7 @@ final class ImageSearchCollectionViewCell: UICollectionViewCell {
     func configureLayout() {
         
         imageView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.edges.equalTo(contentView.safeAreaLayoutGuide)
         }
         
     }

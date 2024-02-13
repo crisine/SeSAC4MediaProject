@@ -53,6 +53,8 @@
 		FAC0C76A2B7BE93000DC5502 /* ImageSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0C7692B7BE93000DC5502 /* ImageSearchView.swift */; };
 		FAC0C76C2B7BE9D700DC5502 /* ImageSearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0C76B2B7BE9D700DC5502 /* ImageSearchCollectionViewCell.swift */; };
 		FAC0C76E2B7BEB6800DC5502 /* ImageSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0C76D2B7BEB6800DC5502 /* ImageSearchViewController.swift */; };
+		FAC0C7702B7BF74800DC5502 /* NaverAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0C76F2B7BF74800DC5502 /* NaverAPIManager.swift */; };
+		FAC0C7722B7BF76000DC5502 /* NaverImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0C7712B7BF76000DC5502 /* NaverImageModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,6 +103,8 @@
 		FAC0C7692B7BE93000DC5502 /* ImageSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSearchView.swift; sourceTree = "<group>"; };
 		FAC0C76B2B7BE9D700DC5502 /* ImageSearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		FAC0C76D2B7BEB6800DC5502 /* ImageSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSearchViewController.swift; sourceTree = "<group>"; };
+		FAC0C76F2B7BF74800DC5502 /* NaverAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverAPIManager.swift; sourceTree = "<group>"; };
+		FAC0C7712B7BF76000DC5502 /* NaverImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverImageModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +158,7 @@
 				FA5EFB652B69636E0009FC65 /* MovieModel.swift */,
 				FA09CF7B2B6A27F000FA3C71 /* TVSeriesModel.swift */,
 				FA09CF7D2B6A381900FA3C71 /* CastModel.swift */,
+				FAC0C7712B7BF76000DC5502 /* NaverImageModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -224,6 +229,7 @@
 				FA09CF872B6C10FB00FA3C71 /* TMDBAPI.swift */,
 				FA5EFB572B692EFD0009FC65 /* TMDBAPIManager.swift */,
 				FA141EC32B71338C00CFD65A /* TMDBSessionManager.swift */,
+				FAC0C76F2B7BF74800DC5502 /* NaverAPIManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -369,6 +375,7 @@
 				FA09CF7C2B6A27F000FA3C71 /* TVSeriesModel.swift in Sources */,
 				FA09CF7E2B6A381900FA3C71 /* CastModel.swift in Sources */,
 				FA09CFD22B6FF4CE00FA3C71 /* DetailView.swift in Sources */,
+				FAC0C7722B7BF76000DC5502 /* NaverImageModel.swift in Sources */,
 				FAC0C76A2B7BE93000DC5502 /* ImageSearchView.swift in Sources */,
 				FA5EFB5B2B692EFD0009FC65 /* TMDBAPIManager.swift in Sources */,
 				FAC0C7622B7A884100DC5502 /* ProfileItemModifyView.swift in Sources */,
@@ -392,6 +399,7 @@
 				FA09CFCF2B6FEE1500FA3C71 /* FindMainTableViewCell.swift in Sources */,
 				FA09CFC42B6FA29E00FA3C71 /* FindViewController.swift in Sources */,
 				FA09CFCB2B6FD61A00FA3C71 /* FindTableViewCell.swift in Sources */,
+				FAC0C7702B7BF74800DC5502 /* NaverAPIManager.swift in Sources */,
 				FA5EFB432B692E9B0009FC65 /* SceneDelegate.swift in Sources */,
 				FA09CFC52B6FA29E00FA3C71 /* FindView.swift in Sources */,
 				FA09CFC02B6FA07500FA3C71 /* BaseView.swift in Sources */,

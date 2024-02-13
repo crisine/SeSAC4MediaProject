@@ -13,6 +13,9 @@ final class ImageSearchViewController: BaseViewController {
     
     private let mainView = ImageSearchView()
     
+    var searchedImageList: [NaverImage] = []
+    var start: Int = 1
+    
     override func loadView() {
         self.view = mainView
     }
@@ -50,28 +53,46 @@ extension ImageSearchViewController: UISearchBarDelegate {
     
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
         print("검색을 위한 통신 시작")
         
-        // MARK: 검색 완료 후 collectionView ReloadData.
+        guard let query = searchBar.text else { return }
+        
+        NaverAPIManager.shared.fetchImage(query: query, start: start) { naverImageModel, error in
+
+            if let naverImageModel {
+                guard naverImageModel.items.count != 0 else {
+                    print("검색된 이미지 없음") // MARK: Alert로 띄워야 함
+                    self.searchedImageList.removeAll()
+                    return
+                }
+                self.searchedImageList = naverImageModel.items
+                self.mainView.collectionView.reloadData()
+                self.mainView.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: false)
+            } else {
+                print("이미지 검색 통신 실패")
+                dump(error)
+            }
+            
+        }
     }
 }
 
 extension ImageSearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30 // MARK: 네트워크 통신 후 받아온 이미지의 리스트 .count
+        return searchedImageList.count // MARK: 네트워크 통신 후 받아온 이미지의 리스트 .count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageSearchCollectionViewCell", for: indexPath) as! ImageSearchCollectionViewCell
+        let index = indexPath.row
+        let urlString = searchedImageList[index].thumbnail
         
         print("이미지 세팅중")
-        cell.imageView.image = UIImage(systemName: "star.fill")
-        cell.imageView.backgroundColor = UIColor(red: Double.random(in: 0...1), green: Double.random(in: 0...1), blue: Double.random(in: 0...1), alpha: 1)
-//        cell.backgroundColor = UIColor(red: Double.random(in: 0...1), green: Double.random(in: 0...1), blue: Double.random(in: 0...1), alpha: 1)
+        cell.imageView.kf.setImage(with: URL(string: urlString))
         cell.imageView.contentMode = .scaleAspectFill
-        
-        // cell.imageView -> 네트워크 통신 후 받아온 image 할당
         
         return cell
     }
