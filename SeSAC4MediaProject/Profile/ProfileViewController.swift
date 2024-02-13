@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class ProfileViewController: BaseViewController {
     
@@ -57,7 +58,9 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileImageTableViewCell", for: indexPath) as! ProfileImageTableViewCell
             
-            // MARK: 프로필 이미지 설정
+            let url = URL(string: UserDefaults.standard.string(forKey: "profileImageUrl") ?? "")
+            cell.profileImageView.kf.setImage(with: url)
+            
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didProfileImageTapped))
             
             cell.profileImageView.addGestureRecognizer(tapGesture)
@@ -86,6 +89,14 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     func didProfileImageTapped(sender: UIImageView) {
         print("프로필 이미지 눌림")
         let vc = ImageSearchViewController()
+        
+        vc.imageSpace = { urlString in
+            print("이미지 링크 : \(urlString)")
+            
+            // MARK: Manager를 통하여 값을 관리하도록 추후 변경
+            UserDefaults.standard.setValue(urlString, forKey: "profileImageUrl")
+            self.mainView.tableView.reloadData()
+        }
         
         present(vc, animated: true)
     }

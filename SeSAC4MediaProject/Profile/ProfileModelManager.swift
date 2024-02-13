@@ -13,14 +13,16 @@ final class ProfileModelManager {
     private var userProfile: ProfileModel
     
     private init() {
-        // MARK: UserDefaults를 통해 저장하고, 나중에는 DB나 네트워크로 변경
         let realName = UserDefaults.standard.string(forKey: ProfileItemTitle.realname.rawValue)
         let nickName = UserDefaults.standard.string(forKey: ProfileItemTitle.nickname.rawValue)
         
-        userProfile = ProfileModel(realName: realName ?? "", nickName: nickName ?? "")
+        // MARK: ProfileItemTitle 의 case를 사용하여 저장/로드하는게 여기서 문제가 되게 됨. 해결책 필요
+        let imageUrlString = UserDefaults.standard.string(forKey: "profileImageUrl")
+        
+        userProfile = ProfileModel(realName: realName ?? "", nickName: nickName ?? "", imageUrlString: imageUrlString ?? "")
     }
     
-    // MARK: throws를 통하여 정해진 enum case 의 error를 반환
+    // MARK: throws를 통하여 정해진 enum case 의 error를 반환하도록 고려 필요
     public func saveValue(title: ProfileItemTitle, value: String) {
         switch title {
         case .realname:
