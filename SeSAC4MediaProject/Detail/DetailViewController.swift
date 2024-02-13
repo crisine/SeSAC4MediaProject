@@ -10,9 +10,10 @@ import Kingfisher
 
 class DetailViewController: BaseViewController {
     
-    let mainView = DetailView()
-    var tvSeriesInfo: TVSeries
-    var similarTVSeriesList: [TVSeries] = []
+    private let mainView = DetailView()
+    private var tvSeriesInfo: TVSeries
+    private var similarTVSeriesList: [TVSeries] = []
+    private var youtubeKey: String?
     
     init(tvSeriesInfo: TVSeries) {
         self.tvSeriesInfo = tvSeriesInfo
@@ -40,6 +41,16 @@ class DetailViewController: BaseViewController {
     
     override func configureView() {
         mainView.tableView.backgroundColor = .black
+    }
+}
+
+extension DetailViewController {
+    
+    @objc
+    private func didYoutubeButtonTapped() {
+        let vc = YoutubeWebViewController()
+        
+        present(vc, animated: true)
     }
 }
 
@@ -78,6 +89,24 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             cell.ratingLabel.text = "★ " + String(tvSeriesInfo.vote_average)
             cell.voteCountLabel.text = "(" + String(tvSeriesInfo.vote_count) + ")"
             cell.overviewLabel.text = tvSeriesInfo.overview
+            
+            TMDBAPIManager.shared.request(type: VideoModel.self, api: TMDBTVAPI.videos(seriesID: String(tvSeriesInfo.id))) { videoModel in
+            
+                print("videoModel: \(videoModel)")
+                print("results: \(videoModel.results)")
+                self.youtubeKey = videoModel.results.first?.key
+                
+                UserDefaults.standard.setValue(self.youtubeKey, forKey: "youtubeKey")
+                
+                // 클로저 밖에서 아래 처리를 하는 경우 비동기로 인해 키가 있어도 버튼이 안 보일 수 있음
+                if self.youtubeKey == nil {
+                    cell.youtubeButton.isEnabled = false
+                } else {
+                    cell.youtubeButton.isEnabled = true
+                }
+            }
+            
+            cell.youtubeButton.addTarget(self, action: #selector(didYoutubeButtonTapped), for: .touchUpInside)
             
             return cell
         case 1:

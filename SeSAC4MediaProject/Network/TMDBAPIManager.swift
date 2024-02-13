@@ -28,8 +28,6 @@ class TMDBAPIManager {
             
             switch response.result {
             case .success(let success):
-                // print("success: ", success)
-                
                 completionHandler(success)
                 
             case .failure(let failure):

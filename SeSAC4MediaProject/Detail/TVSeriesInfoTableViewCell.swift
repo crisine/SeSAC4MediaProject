@@ -19,6 +19,7 @@ class TVSeriesInfoTableViewCell: UITableViewCell {
     let ratingLabel = WhiteTextLabel()
     let voteCountLabel = WhiteTextLabel()
     let overviewLabel = WhiteTextLabel()
+    let youtubeButton = UIButton()
     
     override init(style: UITableViewCell.CellStyle,
                   reuseIdentifier: String?) {
@@ -30,7 +31,7 @@ class TVSeriesInfoTableViewCell: UITableViewCell {
     }
     
     func configureHirearchy() {
-        [posterImageView, titleLabel, ratingLabel, voteCountLabel, overviewLabel].forEach {
+        [posterImageView, titleLabel, ratingLabel, voteCountLabel, overviewLabel, youtubeButton].forEach {
             contentView.addSubview($0)
         }
     }
@@ -66,7 +67,14 @@ class TVSeriesInfoTableViewCell: UITableViewCell {
         overviewLabel.snp.makeConstraints { make in
             make.top.equalTo(ratingLabel.snp.bottom)
             make.horizontalEdges.equalTo(contentView)
-            make.height.equalTo(120)
+            make.height.lessThanOrEqualTo(120)
+        }
+        
+        youtubeButton.snp.makeConstraints { make in
+            make.top.equalTo(overviewLabel.snp.bottom).offset(8)
+            make.leading.equalTo(contentView).offset(8)
+            make.height.equalTo(40)
+            make.width.greaterThanOrEqualTo(120)
         }
     }
     
@@ -82,6 +90,15 @@ class TVSeriesInfoTableViewCell: UITableViewCell {
         voteCountLabel.font = .systemFont(ofSize: 14)
         
         overviewLabel.numberOfLines = 0
+        
+        
+        youtubeButton.setTitleColor(.black, for: .normal)
+        youtubeButton.clipsToBounds = true
+        youtubeButton.layer.cornerRadius = 8
+        youtubeButton.backgroundColor = .white
+        youtubeButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
+        youtubeButton.tintColor = .red
+        youtubeButton.setTitle(" 예고편 보기", for: .normal)
     }
     
     required init?(coder: NSCoder) {

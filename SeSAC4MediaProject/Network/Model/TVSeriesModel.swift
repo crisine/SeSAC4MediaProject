@@ -22,6 +22,7 @@ struct TVSeries: Decodable {
     let vote_average: Double
     let vote_count: Int
     let spoken_languages: [SpokenLanguage]?
+    let key: String?
 }
 
 struct Genre: Decodable {
