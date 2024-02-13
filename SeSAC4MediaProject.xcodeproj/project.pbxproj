@@ -50,6 +50,9 @@
 		FAC0C7622B7A884100DC5502 /* ProfileItemModifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0C7612B7A884100DC5502 /* ProfileItemModifyView.swift */; };
 		FAC0C7642B7A8D7B00DC5502 /* ProfileItemModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0C7632B7A8D7B00DC5502 /* ProfileItemModifyViewController.swift */; };
 		FAC0C7672B7A973700DC5502 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0C7662B7A973700DC5502 /* UITextField+Extension.swift */; };
+		FAC0C76A2B7BE93000DC5502 /* ImageSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0C7692B7BE93000DC5502 /* ImageSearchView.swift */; };
+		FAC0C76C2B7BE9D700DC5502 /* ImageSearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0C76B2B7BE9D700DC5502 /* ImageSearchCollectionViewCell.swift */; };
+		FAC0C76E2B7BEB6800DC5502 /* ImageSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0C76D2B7BEB6800DC5502 /* ImageSearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +98,9 @@
 		FAC0C7612B7A884100DC5502 /* ProfileItemModifyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileItemModifyView.swift; sourceTree = "<group>"; };
 		FAC0C7632B7A8D7B00DC5502 /* ProfileItemModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileItemModifyViewController.swift; sourceTree = "<group>"; };
 		FAC0C7662B7A973700DC5502 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
+		FAC0C7692B7BE93000DC5502 /* ImageSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSearchView.swift; sourceTree = "<group>"; };
+		FAC0C76B2B7BE9D700DC5502 /* ImageSearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSearchCollectionViewCell.swift; sourceTree = "<group>"; };
+		FAC0C76D2B7BEB6800DC5502 /* ImageSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +201,7 @@
 				FA5EFB542B692EAD0009FC65 /* Network */,
 				FA09CFC12B6FA29500FA3C71 /* Find */,
 				FAC0C7542B7A3B0800DC5502 /* Profile */,
+				FAC0C7682B7BE91A00DC5502 /* ImageSearch */,
 				FA141ED82B72C8D900CFD65A /* FindResult */,
 				FA141EDB2B72C9AF00CFD65A /* CollectionViewCell */,
 				FA09CFD02B6FF4BA00FA3C71 /* Detail */,
@@ -261,6 +268,16 @@
 				FAC0C7662B7A973700DC5502 /* UITextField+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		FAC0C7682B7BE91A00DC5502 /* ImageSearch */ = {
+			isa = PBXGroup;
+			children = (
+				FAC0C7692B7BE93000DC5502 /* ImageSearchView.swift */,
+				FAC0C76B2B7BE9D700DC5502 /* ImageSearchCollectionViewCell.swift */,
+				FAC0C76D2B7BEB6800DC5502 /* ImageSearchViewController.swift */,
+			);
+			path = ImageSearch;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -352,6 +369,7 @@
 				FA09CF7C2B6A27F000FA3C71 /* TVSeriesModel.swift in Sources */,
 				FA09CF7E2B6A381900FA3C71 /* CastModel.swift in Sources */,
 				FA09CFD22B6FF4CE00FA3C71 /* DetailView.swift in Sources */,
+				FAC0C76A2B7BE93000DC5502 /* ImageSearchView.swift in Sources */,
 				FA5EFB5B2B692EFD0009FC65 /* TMDBAPIManager.swift in Sources */,
 				FAC0C7622B7A884100DC5502 /* ProfileItemModifyView.swift in Sources */,
 				FAC0C7602B7A67D800DC5502 /* ProfileModelManager.swift in Sources */,
@@ -359,6 +377,7 @@
 				FA141EC42B71338C00CFD65A /* TMDBSessionManager.swift in Sources */,
 				FAC0C7532B7A352A00DC5502 /* MainTabBarController.swift in Sources */,
 				FAC0C7562B7A3B1800DC5502 /* ProfileView.swift in Sources */,
+				FAC0C76C2B7BE9D700DC5502 /* ImageSearchCollectionViewCell.swift in Sources */,
 				FAC0C75A2B7A439E00DC5502 /* ProfileViewController.swift in Sources */,
 				FAC0C7582B7A3D1700DC5502 /* ProfileImageTableViewCell.swift in Sources */,
 				FA09CF7A2B6A1D2600FA3C71 /* BaseViewController.swift in Sources */,
@@ -368,6 +387,7 @@
 				FA09CF882B6C10FB00FA3C71 /* TMDBAPI.swift in Sources */,
 				FA5EFB752B6965380009FC65 /* BlackTextLabel.swift in Sources */,
 				FA141EDF2B72F03500CFD65A /* TVSeriesInfoTableViewCell.swift in Sources */,
+				FAC0C76E2B7BEB6800DC5502 /* ImageSearchViewController.swift in Sources */,
 				FA5EFB592B692EFD0009FC65 /* PosterModel.swift in Sources */,
 				FA09CFCF2B6FEE1500FA3C71 /* FindMainTableViewCell.swift in Sources */,
 				FA09CFC42B6FA29E00FA3C71 /* FindViewController.swift in Sources */,

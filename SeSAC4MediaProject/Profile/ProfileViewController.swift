@@ -58,6 +58,10 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileImageTableViewCell", for: indexPath) as! ProfileImageTableViewCell
             
             // MARK: 프로필 이미지 설정
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didProfileImageTapped))
+            
+            cell.profileImageView.addGestureRecognizer(tapGesture)
+            cell.profileImageView.isUserInteractionEnabled = true
             
             return cell
         default:
@@ -79,6 +83,14 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc
+    func didProfileImageTapped(sender: UIImageView) {
+        print("프로필 이미지 눌림")
+        let vc = ImageSearchViewController()
+        
+        present(vc, animated: true)
+    }
+    
+    @objc
     func didItemModifyButtonTapped(sender: UIButton) {
         print("\(sender.tag) 번 프로필 아이템 버튼 눌림!")
 
@@ -90,7 +102,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         
         vc.valueClosure = { value in
             print("수정 뷰로부터 넘겨받은 값 \(value)")
-            // MARK: UserDefaults에 sender.tag 기준으로 구분해서 넘겨받은 값을 저장
+            
             ProfileModelManager.shared.saveValue(title: self.itemTitleList[sender.tag], value: value)
             
             self.mainView.tableView.reloadData()

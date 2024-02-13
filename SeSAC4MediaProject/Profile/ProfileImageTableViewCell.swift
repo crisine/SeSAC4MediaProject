@@ -10,7 +10,7 @@ import SnapKit
 
 final class ProfileImageTableViewCell: UITableViewCell {
     
-    private let profileImageView: UIImageView = {
+    let profileImageView: UIImageView = {
         let view = UIImageView()
         
         view.contentMode = .scaleAspectFill

@@ -28,6 +28,8 @@ final class ProfileModelManager {
         case .nickname:
             userProfile.nickName = value
         }
+        
+        UserDefaults.standard.setValue(value, forKey: title.rawValue)
     }
     
     public func getValue(title: ProfileItemTitle) -> String {
