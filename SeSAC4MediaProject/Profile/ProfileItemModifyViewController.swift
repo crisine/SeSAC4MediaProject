@@ -15,6 +15,8 @@ final class ProfileItemModifyViewController: BaseViewController {
         self.view = mainView
     }
     
+    var valueClosure: ((String) -> Void)?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,8 +50,9 @@ final class ProfileItemModifyViewController: BaseViewController {
     }
     
     @objc
-    private func didSaveItemDetailButtonTapped() {
+    private func didSaveItemDetailButtonTapped(sender: UIBarButtonItem) {
         // MARK: UserDefaults나 DB에 저장, 혹은 네트워크로 전송하는 과정 추가
+        valueClosure?(mainView.textField.text ?? "")
         navigationController?.popViewController(animated: true)
     }
 

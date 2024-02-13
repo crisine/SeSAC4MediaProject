@@ -63,13 +63,16 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileItemTableViewCell", for: indexPath) as! ProfileItemTableViewCell
             
-            cell.itemTitleLabel.text = itemTitleList[rowNum - 1].rawValue
+            let itemTitle = itemTitleList[rowNum - 1]
+            
+            cell.itemTitleLabel.text = itemTitle.rawValue
+            cell.itemDetailLabel.text = ProfileModelManager.shared.getValue(title: itemTitle)
+            
+            // MARK: 저장된 정보가 없는 경우 placeholder 출력 필요
+            // ->
             
             cell.itemModifyButton.tag = rowNum - 1
             cell.itemModifyButton.addTarget(self, action: #selector(didItemModifyButtonTapped), for: .touchUpInside)
-//            cell.itemDetailLabel.text =
-//          MARK: 알맞은 유저 정보를 ProfileModelManager 로부터 불러오기
-//          menu의 case를 manager로 넘겨서 정보를 가져오는 것도 하나의 방법일수도 있을 것으로 보임.
             
             return cell
         }
@@ -82,8 +85,19 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         let vc = ProfileItemModifyViewController()
 
         // MARK: itemText는 사용자에게 저장되어 있는 실제 값을 불러오아야만 함
-        vc.setViewLabelsText(titleText: itemTitleList[sender.tag].rawValue, itemText: "임시")
+        let itemText = ProfileModelManager.shared.getValue(title: itemTitleList[sender.tag])
+        vc.setViewLabelsText(titleText: itemTitleList[sender.tag].rawValue, itemText: itemText)
+        
+        vc.valueClosure = { value in
+            print("수정 뷰로부터 넘겨받은 값 \(value)")
+            // MARK: UserDefaults에 sender.tag 기준으로 구분해서 넘겨받은 값을 저장
+            ProfileModelManager.shared.saveValue(title: self.itemTitleList[sender.tag], value: value)
+            
+            self.mainView.tableView.reloadData()
+        }
         
         navigationController?.pushViewController(vc, animated: true)
+        
+        
     }
 }
